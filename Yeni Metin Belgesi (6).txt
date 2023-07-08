@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    double sayi;
+
+    printf("Bir ondalik sayi girin: ");
+    scanf("%lf", &sayi);
+
+    printf("Sayi onaltilik (hexadecimal) olarak: %a\n", sayi);
+
+    return 0;
+}

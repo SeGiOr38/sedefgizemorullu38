@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    FILE *dosya;
+    char metin[100];
+
+    // Dosyayı açma ve metin yazma
+    dosya = fopen("metin.txt", "w");
+    if (dosya == NULL) {
+        printf("Dosya olusturulamadi.");
+        return 1;
+    }
+
+    printf("Bir metin girin: ");
+    fgets(metin, sizeof(metin), stdin);
+    fprintf(dosya, "%s", metin);
+
+    fclose(dosya);
+
+    // Dosyayı açma ve metni okuma
+    dosya = fopen("metin.txt", "r");
+    if (dosya == NULL) {
+        printf("Dosya acilamadi.");
+        return 1;
+    }
+
+    printf("\nDosyadan okunan metin:\n");
+    while (fgets(metin, sizeof(metin), dosya) != NULL) {
+        printf("%s", metin);
+    }
+
+    fclose(dosya);
+
+    return 0;
+}
